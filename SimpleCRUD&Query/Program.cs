@@ -60,6 +60,7 @@ Personal per1 = new Personal()
     Surname = "sn"
 };
 connectionDb.Update(per1);
+//Context içerisindeki update metodu change tracker mekanizmasına gerek duymaz.
 await connectionDb.SaveChangesAsync();
 //Yukarıda changeTracker ile izlenmeyen bir verinin nasıl güncelleneciğinin bir örneği bulunmakta.Update fonksiyonu mantık olarak ilk olarak verilen id ile bir sorgu yapar.Yani Update fonksiyonunu kullanabilmek için
 //göndereceğimiz instance bir sorgu parametresi içermelidir.Ardından bulduğu veriyi günceller.
