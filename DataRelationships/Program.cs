@@ -185,7 +185,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 //class Personal2 //Dependent Entity
 //{
-    
+
 //    public int Id { get; set; }
 //    public int DepartmanId { get; set; } //Foreign Key
 //    public string Name { get; set; }
@@ -237,4 +237,196 @@ using System.ComponentModel.DataAnnotations.Schema;
 //    public string Name { get; set; }
 //    public List<Book> Books { get; set; }
 //}
+#endregion
+#region OneToOne ilişkilerde veri güncelleme
+//OneToOne ilişkilerde verileri güncellerken iki farklı durumu ele alacağız.Bu durumlardan biri principal üzerinden güncelleme yapılırken diğeri depedent entity üzerinden yapılacak.
+//var person = _context.Personal.Include(p=> p.Address).FirstOrDefault(p => p.Id == 2);
+//_context.Personal.Remove(person.Address);
+
+//person.personaladdress = new personaladdress()
+//{
+//    definiation = "Updated"
+//};
+//await _context.SaveChangesAsync(); // Burda principal entity ile adres güncellemesi yapıyoruz.Güncellemede farklı olan eski adresi silip tekrar yenisini eklememiz.Bu örnek olan bir durum.
+//2. durumda ise direkt adres üzerinden bir personali güncelleriz.Eğer direkt aynı kullanıcının adresini güncelleme işlemini yapmak istiyorsak bunu kolaylıkla yapabiliriz fakat biz burda veriyi tamamen değiştireceğiz.
+//var address = await _context.Address.FindAsync(1);
+//_context.Address.Remove(address);
+//_context.SaveChanges();
+
+//var person2 = _context.Person.FindAsync(1);
+//address.Person = person2;
+//_context.Person.Add(person2);
+//_context.SaveChanges();
+//Yukarıda dependent entity ile bir adres güncellemesi yapıyoruz.İlk olarak adresi silip ardından yeni bir adres ekleyip istediğimiz kullanıcıyla ilişkilendiriyoruz.
+
+
+//class personal //principal entity
+//{
+//    public int ıd { get; set; }
+//    public string name { get; set; }
+//    public string email { get; set; }
+//    public personaladdress personaladdress { get; set; } //navigation property
+//}
+
+//class personaladdress //dependent entity
+//{
+//    public int ıd { get; set; }
+//    public int personalıd { get; set; } //foreignkey
+//    public string definiation { get; set; }
+//    public personal? personal { get; set; } //navigation property
+//}
+
+#endregion
+#region OneToMany ilişkilerde veri güncelleme
+//OneToMany ilişkilerde güncelleme yaparken yine 2 farklı durumu ele alırız.Birinde principal diğerinde depedent entity ile güncelleme işlemi yapılır.
+//Principal entity ile güncellerken principal entity olan tablodan veri çekilir ve bu veri içerisindeki yapılar güncellenerek tekrardan saveChanges metodu çağırılır.CT tarafından izlendiğini unutmayalım.
+//var departman = _context.Departman.Include(p => p.Personal).FirstOrDefault(p => p.Id == 1);
+//var removedPersonal = departman.Personal.FirstOrDefault(p=>p.Id == 1);
+//departman.Personal.Remove(removedPersonal);
+//departman.Personal.Add(new Personal2 { });
+//departman.Personal.Add(new Personal2 { });
+//_context.SaveChanges();
+//Yukarıda departman içerisinden bazı personeller sildik ve ekledik.İstersek var olan bir personeli de kolayca güncelleme işlemine gönderebiliriz.
+//var p = await _context.Personal2.FindAsync(2);
+//p.Departman = new()
+//{
+
+//};
+////Yukarıda zaten var olan bir kullanıcının departmanı güncellenir.Güncellenirken eklenen departman farklı bir veri olarak eklenir.Yani Personal güncellenirken Departman eklenmiş olur.
+////Veritabanından generate ettiğpimiz bir departmanı başka bir kullanıcıya atarken de aynı şekilde bu yolu izler ve güncelleriz.
+//class Personal2 //Dependent Entity
+//{
+
+//    public int Id { get; set; }
+//    public int DepartmanId { get; set; } //Foreign Key
+//    public string Name { get; set; }
+//    public string Email { get; set; }
+//    public Departman Departman { get; set; } //Navigation Property
+//}
+//class Departman
+//{
+//    public Departman()
+//    {
+//        Personals2 = new List<Personal2>();
+//    }
+//    public int Id { get; set; }
+//    public string Name { get; set; }
+//    public List<Personal2> Personals2 { get; set; } //Navigation Property
+
+//}
+
+#endregion
+#region ManyToMany ilişkilerde veri güncelleme
+//ManyToMany ilişkileride veri güncellerken iki tablodan herhhangi biri tercih edilebilir.Zaten güncellenen veri genelde cross table üzerinden güncellenir.Sadece atomik bir veri içeriği güncellersek principal tablolardan güncellenir.
+//Book book = await context.Books.Include(p=>p.Authors).FirstOrDefault(p=> p.Id == 2)
+//Author s = book.Authors.FirstOrDefault(a=>a.Id==1)
+//book.Authors.Remove(s);
+//_context.SaveChanges();
+//Yukarıda bir book için bir yazar siliniyor.Burda silinen yazar direkt yazar tablosundan silinmez gider cross table içerisinden ilişkii atandığı yer silinir.
+//class Book
+//{
+//    public Book()
+//    {
+//        Authors = new List<Author>();
+//    }
+//    public int Id { get; set; }
+//    public string Name { get; set; }
+//    public List<Author> Authors { get; set; }
+//}
+
+//class Author
+//{
+//    public Author()
+//    {
+//        Books = new List<Book>();
+//    }
+//    public int Id { get; set; }
+//    public string Name { get; set; }
+//    public List<Book> Books { get; set; }
+//}
+#endregion
+#region OneToOne ilişkilerde veri silme
+//var departman = _context.Departman.Include(d=>d.Personal).FirstOrDefault(d=>d.Id == 1);
+//_context.Address.Remove(departman.address);
+//Yukarıda principal entity üzerinden dependent entityde silme işlemi örneğini görüyoruz.
+//class Personal2 //Dependent Entity
+//{
+//    public int Id { get; set; }
+//    public int DepartmanId { get; set; } //Foreign Key
+//    public string Name { get; set; }
+//    public string Email { get; set; }
+//    public Departman Departman { get; set; } //Navigation Property
+//}
+//class Departman
+//{
+//    public int Id { get; set; }
+//    public string Name { get; set; }
+//    public List<Personal2> Personals2 { get; set; } //Navigation Property
+
+//}
+#endregion
+#region OneToMany ilişkilerde veri silme
+//Principal entity üzerinden dependent entity verilerine ulaşır ve burda silme işlemini tamamlarız.
+//var departman = _context.Departman.Include(p => p.Personal).FirstOrDefault(p => p.Id == 1);
+//var removedPersonal = departman.Personal.FirstOrDefault(p=>p.Id == 1);
+//_context.Personal2.Remove(removedPersonal);
+//_context.SaveChanges(); //Güncellerken principal tablodan yola çıktığımızı burda ise depedent tablodan sildiğimizin farkına varılmalı.
+//class Personal2 //Dependent Entity
+//{
+
+//    public int Id { get; set; }
+//    public int DepartmanId { get; set; } //Foreign Key
+//    public string Name { get; set; }
+//    public string Email { get; set; }
+//    public Departman Departman { get; set; } //Navigation Property
+//}
+//class Departman
+//{
+//    public Departman()
+//    {
+//        Personals2 = new List<Personal2>();
+//    }
+//    public int Id { get; set; }
+//    public string Name { get; set; }
+//    public List<Personal2> Personals2 { get; set; } //Navigation Property
+
+//}
+#endregion
+#region ManyToMany ilişkilerde veri silme
+//Book book = await context.Books.Include(p=>p.Authors).FirstOrDefault(p=> p.Id == 2)
+//Author s = book.Authors.FirstOrDefault(a=>a.Id==1)
+//_context.Books.Remove(s);
+//_context.SaveChanges();
+//Yukarıda cross table ile birbiri arasındaki ilişkiyi silme yöntemi gösteriliyor.Many to many ilişkilerde direkt olarak principal tablolardan veri silmek bazı noktalarda veri kaybına neden olabilir.Bu yüzden ilişki silme durumu daha doğrudur.
+//_context.Authors.Remove(s); // Bu şekilde bir silmeye zorlarsak cross table üzerinde veri kaybına neden olacaktır.Hem cross table içerisinden ilişki silinirken hem de author kendi tablosundan silinir.
+//Belirli durumlarda yapılacak olsa da pek tercih edilmeyebilir.
+//class Book
+//{
+//    public Book()
+//    {
+//        Authors = new List<Author>();
+//    }
+//    public int Id { get; set; }
+//    public string Name { get; set; }
+//    public List<Author> Authors { get; set; }
+//}
+
+//class Author
+//{
+//    public Author()
+//    {
+//        Books = new List<Book>();
+//    }
+//    public int Id { get; set; }
+//    public string Name { get; set; }
+//    public List<Book> Books { get; set; }
+//}
+#endregion
+#region Cascade Delete & SetNull Delete
+//İlişkisel senaryolarda verilerin silinemelerinde bazı durumlara izin verilmez.Bu durumlarda cascade ve setnull yapılarını kullanmamıza ihtiyaç duyarız.
+//Principal bir tablodan bir veri silinmek istendiğinde depedent entity'de kalacak veriler bir anlam ifade etmeyeceğinden kaynaklı silinmeye veritabanı seviyesinde izin verilmez veya hata dönderilir.
+//Örneğin 5 tane blog'a sahip bir postu silmek istediğimizde geriye kalan postlar bir FK alamaycağından bir anlam ifade edilmez.Bu durumla karşılaşmak istemediğimizden dolayı cascade ve setnull kullanırız.
+//CASCADE : Principal tablodan sildiğimiz veriyle birlikte bu veriye bağlı olan verilerin depedent tablolsundan da silinmesini sağlar.Database connection içerisinde konfigürasyon dosyasında Fluent API ile ayarlanır.
+//SetNULL : Principal tablodan sildiğimiz veriyle birlikte bu veriye bağlı olan verilere Null değeri atanmasını sağlar.Yani veriler fiziksek olarak silinmez fakat FK değerleri null olarak atanacaktır.
+//Fluent Api ile sağlanmış ilişkilere .OnDelete(DeleteBehavior) veya .OnDelete(DeleteBehavior.SetNull) diyerek işlemleri gerçekleştirebiliriz.
 #endregion
