@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChangeTracker", "ChangeTrac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataRelationships", "DataRelationships\DataRelationships.csproj", "{DE361862-AE91-408D-9718-25A2D264C4C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackingFieldsAndShadowProp", "BackingFieldsAndShadowProp\BackingFieldsAndShadowProp.csproj", "{B937389C-5A4B-482F-8D98-06F70C72C5EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackingFieldsAndShadowProp", "BackingFieldsAndShadowProp\BackingFieldsAndShadowProp.csproj", "{B937389C-5A4B-482F-8D98-06F70C72C5EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFeatures", "EntityFeatures\EntityFeatures.csproj", "{704AC712-37FE-4D9D-BCA8-662E28AEAE55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B937389C-5A4B-482F-8D98-06F70C72C5EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B937389C-5A4B-482F-8D98-06F70C72C5EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B937389C-5A4B-482F-8D98-06F70C72C5EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{704AC712-37FE-4D9D-BCA8-662E28AEAE55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{704AC712-37FE-4D9D-BCA8-662E28AEAE55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{704AC712-37FE-4D9D-BCA8-662E28AEAE55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{704AC712-37FE-4D9D-BCA8-662E28AEAE55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

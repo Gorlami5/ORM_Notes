@@ -20,6 +20,7 @@
 //    public string Name { get => name; set => name = value; }
 //    public string Surname { get; set; }
 //}
+//Yukarıda BackingField ile işaretlediğimiz name artık Property Name'in yerini tamamen alacaktır.!!!Kapsülleme olmadığı durumda böyledir dikkat edilmeli.Fluent Api configleri ile ikisinin de kullanımı ayarlanabiliyor.
 //fluent api ile UsePropertyAccessMode ile enum yapısı içerisinden property'nin mi yoksa field'ın mı kullanılacağını seçeriz.
 //Eğer entity içerisinde Property olmadan sadece field kullanmak istiyorsak yani Property'e erişimin olmasını istemiyorsak Fluent api ile modelBuilder.Entity<Person>().Property(nameof(Person.name)) diyerek Property'i kaldırabiliriz.
 
