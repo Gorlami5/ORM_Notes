@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneratedValues", "Generate
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComplexJoinQueries", "ComplexJoinQueries\ComplexJoinQueries.csproj", "{4058C4B5-8D5E-4F3E-A948-82523F3BF320}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IEntityType&SeedData", "IEntityType&SeedData\IEntityType&SeedData.csproj", "{E3DE31D4-A849-4ED2-9431-D3693E8A2B14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IEntityType&SeedData", "IEntityType&SeedData\IEntityType&SeedData.csproj", "{E3DE31D4-A849-4ED2-9431-D3693E8A2B14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPH&TPT&TPT", "TPH&TPT&TPT\TPH&TPT&TPT.csproj", "{E9686220-C561-4B4B-8075-498C5872F8D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPH&TPT&TPT", "TPH&TPT&TPT\TPH&TPT&TPT.csproj", "{E9686220-C561-4B4B-8075-498C5872F8D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Constraints", "Constraints\Constraints.csproj", "{2B8765E1-8217-4A61-AA72-73FE8AC5E6F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{E9686220-C561-4B4B-8075-498C5872F8D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9686220-C561-4B4B-8075-498C5872F8D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9686220-C561-4B4B-8075-498C5872F8D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B8765E1-8217-4A61-AA72-73FE8AC5E6F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B8765E1-8217-4A61-AA72-73FE8AC5E6F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B8765E1-8217-4A61-AA72-73FE8AC5E6F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B8765E1-8217-4A61-AA72-73FE8AC5E6F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
