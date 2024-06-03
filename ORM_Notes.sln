@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IEntityType&SeedData", "IEn
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPH&TPT&TPT", "TPH&TPT&TPT\TPH&TPT&TPT.csproj", "{E9686220-C561-4B4B-8075-498C5872F8D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Constraints", "Constraints\Constraints.csproj", "{2B8765E1-8217-4A61-AA72-73FE8AC5E6F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Constraints", "Constraints\Constraints.csproj", "{2B8765E1-8217-4A61-AA72-73FE8AC5E6F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indexes", "Indexes\Indexes.csproj", "{5A8AB0BD-2C02-4F5E-9297-1FB9133F1843}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{2B8765E1-8217-4A61-AA72-73FE8AC5E6F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B8765E1-8217-4A61-AA72-73FE8AC5E6F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B8765E1-8217-4A61-AA72-73FE8AC5E6F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A8AB0BD-2C02-4F5E-9297-1FB9133F1843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A8AB0BD-2C02-4F5E-9297-1FB9133F1843}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A8AB0BD-2C02-4F5E-9297-1FB9133F1843}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A8AB0BD-2C02-4F5E-9297-1FB9133F1843}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
