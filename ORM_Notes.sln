@@ -25,9 +25,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPH&TPT&TPT", "TPH&TPT&TPT\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Constraints", "Constraints\Constraints.csproj", "{2B8765E1-8217-4A61-AA72-73FE8AC5E6F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indexes", "Indexes\Indexes.csproj", "{5A8AB0BD-2C02-4F5E-9297-1FB9133F1843}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indexes", "Indexes\Indexes.csproj", "{5A8AB0BD-2C02-4F5E-9297-1FB9133F1843}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sequences", "Sequences\Sequences.csproj", "{338994B3-03BF-46FC-9608-3D6BCAED0FE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sequences", "Sequences\Sequences.csproj", "{338994B3-03BF-46FC-9608-3D6BCAED0FE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadingRelatedData", "LoadingRelatedData\LoadingRelatedData.csproj", "{C0DE4F7F-07DA-4B6E-8C9C-5AE5802372D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{338994B3-03BF-46FC-9608-3D6BCAED0FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{338994B3-03BF-46FC-9608-3D6BCAED0FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{338994B3-03BF-46FC-9608-3D6BCAED0FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0DE4F7F-07DA-4B6E-8C9C-5AE5802372D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0DE4F7F-07DA-4B6E-8C9C-5AE5802372D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0DE4F7F-07DA-4B6E-8C9C-5AE5802372D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0DE4F7F-07DA-4B6E-8C9C-5AE5802372D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
