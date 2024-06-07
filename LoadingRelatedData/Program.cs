@@ -43,7 +43,25 @@ var query6 = db.Persons.Include(p => ((Employee)p).Orders);
 //Employee'de bir Person olacağından(inheritance) bu şekilde bir include yapısı yapılabilir.
 #endregion
 #endregion
+#region Explicit Loading
+//Sorgu sonucu dönen veriye eklenecek olan tabloların belirli bir şarta veya koşula göre gelmesi durumuna explicit loading adı verilecektir.
+#region Reference
+//Sorgulama sürecinde eklenmek istenen ilişkisel tablonun navigation propertysi tekil ise reference fonksiyonu ile bunu ekleyebiliriz.
+var employee = await db.Employees.FirstOrDefaultAsync(e => e.Id == 2); //bu sorguyu yaptığımızda Employee içinde gelecek region null olacaktır ve eğer biz eager loading yapsak gereksiz bir join yapmış olacaktık.Yani tüm
+//employee'ler include edilecek ardından Id=2 olan gelecekti.Explicit loading Reference fonksiyonu ile sadece şarta bağlı ekleme yapılır
 
+await db.Entry(employee).Reference(e => e.Region).LoadAsync(); // Bu satır çalıştıktan sonra artık employee artık bir region'a sahip olacaktır.
+#endregion
+#region Collection
+//Sorgulama sürecinde eklenmek istenen ilişkisel tablonun navigation propertysi çoğul ise reference fonksiyonu ile bunu ekleyebiliriz.
+var employee2 = await db.Employees.FirstOrDefaultAsync(e => e.Id == 2);
+
+
+await db.Entry(employee).Collection(e => e.Orders).LoadAsync();
+//Explicit loading ile eklenen verileri IQueryable tipine dönüştürmek istersek .Query() diyerek istediğimiz Aggreagte fonksiyonlarını kullanabiliriz.
+//Yine aynı şekilde filtreleme yapmak istersek Query ile filtreleme de yapabiliriz.Execute etmeyi unutmamaız lazım.
+#endregion
+#endregion
 
 
 class Person
