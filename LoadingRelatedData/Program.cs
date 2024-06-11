@@ -62,6 +62,12 @@ await db.Entry(employee).Collection(e => e.Orders).LoadAsync();
 //Yine aynı şekilde filtreleme yapmak istersek Query ile filtreleme de yapabiliriz.Execute etmeyi unutmamaız lazım.
 #endregion
 #endregion
+#region LazyLoading
+//İlişkisel tablolarda navigation property ile gelecek eklemek istediğimiz verileri ihtiyaç duyduğumuzda execute edilmesine lazy loading denir.Bunu kod ile yapmayız sadece konfigüre ederiz ve geri kalanını kendi gerçekleştirir.
+//Konfigüre yapabilmek için 3 farklı yol kullanılır.En yaygın olan proxi sınıfı ile yapılan konfigürasyondur.Bir diğeri Abstract sınıfı ile birlikte ILazyLoader interface'i üzerinden yapılır.
+//Proxi kullanımı için OnConfiguring kullanırız ve bütün navigation propertyleri virtual olarak işaretleriz.
+//Lazy loadingin kullanılması pek önerilmez çünkü lazy loading yapısında n+1 problemi yaşarız.Belirli sorgularda her sorgu için ayrıca bir sorgu execute edeceğinden oldukça maliyetli olacaktır.
+#endregion
 
 
 class Person
@@ -75,20 +81,20 @@ class Employee:Person
     public int RegionId { get; set; }
     public string Name { get; set; }
     public string Surname { get; set; }
-    public Region Region { get; set; }
-    public List<Order> Orders { get; set; }
+    public virtual Region Region { get; set; }
+    public virtual List<Order> Orders { get; set; }
 }
 class Region
 {
     public int Id { get; set; }
     public string RegionName { get; set; }
-    public List<Employee> Employees { get; set; }
+    public virtual List<Employee> Employees { get; set; }
 }
 class Order
 {
     public int Id { get; set; }
     public int EmployeeId { get; set; }
-    public Employee Employee { get; set; }
+    public virtual Employee Employee { get; set; }
     public DateTime OrderDate { get; set; }
 }
 class ConnectionDb : DbContext
@@ -96,6 +102,7 @@ class ConnectionDb : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=OrmDb;Username=postgres;password=mukavina123;");
+        //optionsBuiilder.UseLazyLoadingProxies(); artık lazy loading kullanılabilir.
     }
     public DbSet<Employee> Employees { get; set; }
     public DbSet<Region> Regions { get; set; }
