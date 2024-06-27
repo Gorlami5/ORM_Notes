@@ -35,7 +35,9 @@ var data2 = cdb.Database.SqlQuery<int>($"Select PersonId Value From Persons").To
 cdb.Database.ExecuteSql($"Update Persons SET Name = 'a' Where PersonId = 3");
 #endregion
 //Not!! Bütün query fonksiyonları için dönen veriler entity'nin bütün proplarını kapsamak zorundadır.Yani select edilen spesifik bir kolon tek başına değer dönemez.
-
+#region Scalar&Inline Function
+//Scalar fonksiyonlar ve inline fonksiyonları ef core tarafında ihtiyaç dahilinde konfigüre edebiliyoruz.
+#endregion
 
 class Employee
 {
