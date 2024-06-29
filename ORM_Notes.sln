@@ -35,7 +35,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlQueries", "SqlQueries\Sq
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "View&StoredProcedure", "View&StoredProcedure\View&StoredProcedure.csproj", "{A09419ED-5BC1-4292-8A57-CA6ED85032D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfCoreFunctions&DatabaseProp", "EfCoreFunctions&DatabaseProp\EfCoreFunctions&DatabaseProp.csproj", "{50A13720-A5C4-402D-8F5A-95E61BA3A350}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfCoreFunctions&DatabaseProp", "EfCoreFunctions&DatabaseProp\EfCoreFunctions&DatabaseProp.csproj", "{50A13720-A5C4-402D-8F5A-95E61BA3A350}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeylessEntityTypes", "KeylessEntityTypes\KeylessEntityTypes.csproj", "{927A6BE0-57FE-42C4-AF01-96042612F1EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,10 @@ Global
 		{50A13720-A5C4-402D-8F5A-95E61BA3A350}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50A13720-A5C4-402D-8F5A-95E61BA3A350}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50A13720-A5C4-402D-8F5A-95E61BA3A350}.Release|Any CPU.Build.0 = Release|Any CPU
+		{927A6BE0-57FE-42C4-AF01-96042612F1EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{927A6BE0-57FE-42C4-AF01-96042612F1EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{927A6BE0-57FE-42C4-AF01-96042612F1EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{927A6BE0-57FE-42C4-AF01-96042612F1EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
