@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeylessEntityTypes", "Keyle
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Logging\Logging.csproj", "{E71A54F3-46D2-479E-AB3D-E73FCA70FE2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalQueryFilters", "GlobalQueryFilters\GlobalQueryFilters.csproj", "{1833A4C4-202A-4A1A-9F40-74DE31B0152D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{E71A54F3-46D2-479E-AB3D-E73FCA70FE2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E71A54F3-46D2-479E-AB3D-E73FCA70FE2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E71A54F3-46D2-479E-AB3D-E73FCA70FE2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1833A4C4-202A-4A1A-9F40-74DE31B0152D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1833A4C4-202A-4A1A-9F40-74DE31B0152D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1833A4C4-202A-4A1A-9F40-74DE31B0152D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1833A4C4-202A-4A1A-9F40-74DE31B0152D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
