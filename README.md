@@ -5,7 +5,7 @@ This project includes notes and various examples related to Entity Framework Cor
 - [Installation](#installation)
 
 
-- ## Introduction
+ ## Introduction
 
 In this project, you will learn how to create your data access layer using Entity Framework Core. The project includes basic concepts, advanced use cases, and practical examples.
 ## Installation
